@@ -2,6 +2,8 @@
 
 #### `Demo:` https://dmitriyshkredov.github.io/react-gsap-motion-path/
 
+#### `Youtube:` [React + GSAP | MotionPathPlugin](https://youtu.be/bnPXuZyqPRU)
+
 ---
 
 #### `git clone https://github.com/DmitriyShkredov/react-gsap-motion-path.git`
