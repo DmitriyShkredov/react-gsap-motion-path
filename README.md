@@ -4,6 +4,8 @@
 
 #### `Youtube:` [React + GSAP | MotionPathPlugin](https://youtu.be/bnPXuZyqPRU)
 
+#### `VK Video:` [React + GSAP | MotionPathPlugin](https://vk.com/video/@tipichnyjvebrazrabotchik?z=video-222570561_456239044%2Fclub222570561%2Fpl_-222570561_-2)
+
 ---
 
 #### `git clone https://github.com/DmitriyShkredov/react-gsap-motion-path.git`
