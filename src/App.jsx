@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useLayoutEffect } from "react";
+import gsap from "gsap";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
+import { ReactComponent as Path } from "./assets/path.svg";
+import { ReactComponent as Planet1 } from "./assets/planet1.svg";
+import { ReactComponent as Planet2 } from "./assets/planet2.svg";
+import { ReactComponent as Planet3 } from "./assets/planet3.svg";
+import { ReactComponent as Comet } from "./assets/comet.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  gsap.registerPlugin(MotionPathPlugin);
+  gsap.defaults({ ease: "none", repeat: -1 });
+  useLayoutEffect(() => {
+    gsap.from("#planet1", {
+      duration: 10,
+      motionPath: {
+        path: "#path1",
+        align: "#path1",
+        alignOrigin: [0.5, 0.5],
+      },
+    });
+    gsap.to("#planet2", {
+      duration: 20,
+      motionPath: {
+        path: "#path2",
+        align: "#path2",
+        alignOrigin: [0.5, 0.5],
+      },
+    });
+    gsap.to("#planet3", {
+      duration: 30,
+      motionPath: {
+        path: "#path3",
+        align: "#path3",
+        alignOrigin: [0.5, 0.5],
+      },
+    });
+    gsap.to("#comet", {
+      duration: 30,
+      motionPath: {
+        path: "#path4",
+        align: "#path4",
+        alignOrigin: [0.8, 0.5],
+        autoRotate: true,
+      },
+      onUpdate: () => {
+        gsap.set("#comet", { rotation: "+=90" });
+      },
+    });
+  }, []);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main className="main">
+      <Path />
+      <Planet1 id="planet1" className="planet" />
+      <Planet2 id="planet2" className="planet" />
+      <Planet3 id="planet3" className="planet" />
+      <Comet id="comet" className="comet" />
+    </main>
+  );
 }
 
-export default App
+export default App;
